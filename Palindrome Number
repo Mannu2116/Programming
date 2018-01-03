@@ -24,7 +24,7 @@ SOLUTION 1
             x=x/10;
         }
         
-       return x == rev_num;
+       return num == rev_num;
     }
 }
 
