@@ -1,0 +1,295 @@
+package mannu.linkedList;
+
+public class llistNew {
+	
+	static Node head;
+	
+	static class Node{
+		
+		int data;
+		Node next;
+		
+		Node(int d)
+		{
+			data = d;
+			next = null;
+		}
+		
+	}
+	
+	public void display()
+	{
+		Node n = head;
+		while(n != null)
+		{
+			System.out.print(n.data+" ");
+			n = n.next;
+		}
+		System.out.println(" ");
+	}
+	
+	public void push(int data)
+	{
+		Node new_node = new Node(data);
+		
+		new_node.next = head;
+		
+		head = new_node;
+	}
+
+	public void add_last(int data)
+	{
+		Node new_node = new Node(data);
+		
+		if(head == null)
+		{
+			head = new_node;
+			return;
+		}
+		
+		new_node.next = null;
+		Node n = head;
+		
+		while(n.next!= null)
+			n = n.next;
+		
+		n.next = new_node;
+	}
+	
+	public void add_middle(Node prev, int data)
+	{
+		
+		if(prev.next == null)
+		{
+			System.out.println("The given previous node cannot be null");
+	        return;
+		}
+		Node new_node = new Node(data);
+		
+		Node n = head;
+		
+		new_node.next = prev.next;
+		
+		prev.next = new_node;
+		
+	}
+	
+	public void delete(int key)
+	{
+		Node temp = head, prev = null;
+		
+		if( temp != null && temp.data == key)
+		{
+			head = temp.next;
+			return;
+		}
+		
+		while ( temp != null && temp.data != key)
+		{
+			prev = temp;
+			temp = temp.next;
+		}
+		
+		}
+	public void getCount()
+    {
+        Node temp = head;
+        int count = 0;
+        while (temp != null)
+        {
+            count++;
+            temp = temp.next;
+        }
+        System.out.println("Count:" +count);
+    }
+	
+	public void count()
+	{
+		Node n = head;
+		int cnt = 0;
+		
+		while(n.next!= null)
+		{
+			cnt++;
+			n = n.next;
+		}
+		
+		cnt += 1;
+		
+		System.out.println("Count:" +cnt);
+	}
+	
+	public boolean search(int key)
+	{
+		Node temp = head;
+		
+		while(temp != null)
+		{
+			if(temp.data == key)
+				return true;
+			temp = temp.next;
+		}	
+		return false;
+	}
+	
+	public void swap(int key1, int key2)
+	{
+		Node n1 = head;
+		Node n2 = head;
+		Node prev1 = null, prev2 = null, temp1, temp2, temp3;
+		
+		while(n1 != null && n1.data != key1)
+		{
+			prev1 = n1;
+			n1 = n1.next;
+		}
+		temp1 = n1;
+		System.out.println("temp1"+temp1.data);
+		
+		while(n2 != null && n2.data != key2)
+		{
+			prev2 = n2;
+			n2 = n2.next;
+		}
+		temp2 = n2;
+		System.out.println("prev1"+prev1.data);
+		System.out.println("prev2"+prev2.data);
+		System.out.println("temp2:"+temp2.data);
+		temp3 = temp1.next;
+		
+		prev1.next = temp2;
+		System.out.println("prev1"+prev1.data);
+		prev2.next = temp1;
+		System.out.println("prev2"+prev2.data);
+		
+		temp1.next = temp2.next;
+		temp2.next = temp3;
+		
+	}
+	
+	public void nNode(int index)
+	{
+		Node n = head;
+		int cnt = 0;
+		
+		while(n != null)
+		{
+			cnt++;
+			if(cnt == index)
+				System.out.println(n.data);
+			n = n.next;
+		}
+	}
+	
+	public void middleNode()
+	{
+		Node n = head;
+		int cnt = 0;
+		int cnt1 = 0;
+		
+		while(n != null)
+		{
+			cnt++;
+			n = n.next;
+		}
+		
+		if(cnt%2 == 1)
+		{
+			cnt = cnt/2;
+			cnt += 1;
+		}
+		else
+			cnt = cnt/2;
+		System.out.println("Middle:"+cnt);
+		
+		Node n1 = head;
+		while(n1 != null)
+		{
+			cnt1++;
+			if(cnt1 == cnt)
+				System.out.println("Middle node data is:"+n1.data);
+			n1 = n1.next;
+		}
+		
+	} 
+	
+	public void printFromLast(int pos)
+	{
+		
+		Node n = head;
+		int cnt = 0;
+		int cnt1 =0;
+		
+		while(n != null)
+		{
+			cnt++;
+			n = n.next;
+		}
+		
+		int new_pos = (cnt-pos)+1;
+		
+		Node n1 = head;
+		while(n1 != null)
+		{
+			cnt1++;
+			if(cnt1 == new_pos)
+				System.out.println("Printing from last node:"+n1.data);
+			n1 = n1.next;
+		}
+		
+	}
+	
+	public void count(int search_for)
+	{
+		Node n = head;
+		int cnt = 0;
+		
+		while(n != null)
+		{
+			if(n.data == search_for)
+				cnt++;
+			n = n.next;
+			
+		}
+		System.out.println("count:"+cnt);
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		llistNew linkedList = new llistNew();
+		
+		linkedList.head = new Node(10);
+		Node Second = new Node(20);
+		Node Third = new Node(10);
+		
+		linkedList.head.next = Second;
+		Second.next = Third;
+		
+		linkedList.display();
+		linkedList.push(0);
+		linkedList.display();
+		
+		linkedList.add_last(10);
+		linkedList.display();
+
+	/*	linkedList.add_middle(head,25);
+		linkedList.display();*/
+
+	/*	linkedList.getCount();
+		
+		boolean res = linkedList.search(43);
+		System.out.println(res);
+		
+		linkedList.swap(20, 40);
+		linkedList.display();
+		
+		linkedList.middleNode();*/
+		
+		linkedList.printFromLast(2);
+		linkedList.count(10);
+		
+		
+	}
+
+}
