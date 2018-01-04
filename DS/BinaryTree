@@ -1,0 +1,130 @@
+class binary{
+	int key;
+	binary left, right;
+	
+	binary(int data)
+	{
+		key = data;
+		left = right = null;
+	}
+			
+}
+
+package mannu.binaryTree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+class binaryTree1{
+	
+	static binary root;
+	binaryTree1()
+	{
+		root = null;
+	}
+	
+	binaryTree1(int data)
+	{
+		root = new binary(data);
+	}
+
+	//DFS-PostOrder Traversal
+	public void PostOrder(binary node)
+	{
+		if(node == null)
+			return;
+		
+		PostOrder(node.left);
+		
+		PostOrder(node.right);
+		
+		System.out.print(node.key+" ");
+		
+	}
+	
+	//DFS-PreOrder Traversal
+	public void PreOrder(binary node)
+	{
+		if(node == null)
+			return;
+		
+		System.out.print(node.key+" ");
+		
+		PreOrder(node.left);
+		
+		PreOrder(node.right);		
+	}
+	
+	//DFS-InOrder Traversal
+	public void InOrder(binary node)
+	{
+		if(node == null)
+			return;
+		
+		InOrder(node.left);
+		
+		System.out.print(node.key+" ");
+		
+		InOrder(node.right);
+		
+	}
+	
+	//BFS-Level Order Traversal
+	void printLevelOrder()
+	{
+		Queue<binary> q1 = new LinkedList<binary>();
+		
+		q1.add(root);
+		
+		while(!q1.isEmpty())
+		{
+			binary temp = q1.poll();
+			System.out.print(temp.key +" ");
+			
+			if(temp.left != null)
+			{
+				q1.add(temp.left);
+			}
+			
+			if(temp.right != null)
+			{
+				q1.add(temp.right);
+			}
+		}
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		
+		//creating tree
+		binaryTree1 b1 = new binaryTree1();
+		
+		//create root
+		b1.root = new binary(1);
+		
+		b1.root.left = new binary(2);
+		b1.root.right = new binary(3);
+		
+		b1.root.left.left = new binary(4);
+		b1.root.left.right = new binary(5);
+		
+		System.out.println("BFS/Inorder Order Traversal");
+		b1.InOrder(root);
+		System.out.println("");
+		
+		System.out.println("BFS/Preorder Order Traversal");
+		b1.PreOrder(root);
+		System.out.println("");
+		
+		System.out.println("BFS/Postorder Order Traversal");
+		b1.PostOrder(root);
+		System.out.println("");
+		
+		System.out.println("DFS/Level Order Traversal");
+		b1.printLevelOrder();
+		
+	}
+	
+	
+}
