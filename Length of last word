@@ -1,0 +1,85 @@
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+
+If the last word does not exist, return 0.
+
+Note: A word is defined as a character sequence consists of non-space characters only.
+
+Example:
+
+Input: "Hello World"
+Output: 5
+
+SOLUTION 1
+
+package lengthOfLastWord;
+
+public class lengthLastWord {
+	
+	public int lengthOfLastWord(String s) {
+		
+		int count = 0;
+		
+		for(int i =0; i<s.length();i++)
+		{
+            count++;
+            
+			if(s.charAt(i) == ' ')
+			{
+                count = 0;
+				for(int j = i; j<s.length();j++)
+                    
+                    if(s.charAt(j) == ' ')
+                        count = 0;
+                    else
+					    count++;
+					i = s.length();
+			}
+            
+        }
+        
+		return count;
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		lengthLastWord l1 = new lengthLastWord();
+		
+		int c_lastWord = l1.lengthOfLastWord("Hello world efg");
+		
+		System.out.println("Count of the last word "+c_lastWord);
+
+	}
+
+}
+
+
+SOLUTION 2
+//Counting from end of the world till we reach ' ' character
+
+package lengthOfLastWord;
+
+public class lengthLastWord {
+	
+	public int lengthOfLastWord(String s) {
+		
+		 int len = 0, tail = s.length() - 1;
+	        while (tail >= 0 && s.charAt(tail) == ' ') tail--;
+	        while (tail >= 0 && s.charAt(tail) != ' ') {
+	        		            len++;
+	            tail--;
+	        }
+	        return len;
+	    }
+	
+	public static void main(String[] args) {
+				
+		lengthLastWord l1 = new lengthLastWord();
+		
+		int c_lastWord = l1.lengthOfLastWord("Hello World");
+		
+		System.out.println("Count of the last word "+c_lastWord);
+
+	}
+
+}
