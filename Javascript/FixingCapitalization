@@ -1,0 +1,24 @@
+In this exercise we have the names of cities in the United Kingdom, but the capitalization is all messed up. 
+We want you to change them so that they are all lower case, except for a capital first letter.
+
+SOLUTION
+
+ A good way to do this is to:
+
+Convert the whole of the string contained in the input variable to lower case and store it in a new variable.
+Grab the first letter of the string in this new variable and store it in another variable.
+Using this latest variable as a substring, replace the first letter of the lowercase string with the first letter of the lowercase string changed to upper case. Store the result of this replace procedure in another new variable.
+Change the value of the result variable to equal to the final result, not the input.
+
+var list = document.querySelector('.output ul');
+list.innerHTML = '';
+var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
+for(var i = 0; i < cities.length; i++) {
+ var input = cities[i];                                
+ var result = input.toLowerCase();
+ var res1 = input.slice(0,1);                        
+  var finalResult = res1.toUpperCase() + result.slice(1);
+  var listItem = document.createElement('li');
+  listItem.textContent = finalResult;
+  list.appendChild(listItem);
+}
