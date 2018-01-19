@@ -14,9 +14,12 @@ var list = document.querySelector('.output ul');
 list.innerHTML = '';
 var cities = ['lonDon', 'ManCHESTer', 'BiRmiNGHAM', 'liVERpoOL'];
 for(var i = 0; i < cities.length; i++) {
- var input = cities[i];                                
+ var input = cities[i];     
+ //convert entire string into lowercase
  var result = input.toLowerCase();
- var res1 = input.slice(0,1);                        
+ //Extract first character from the string and store it in a variable.
+ var res1 = input.slice(0,1);   
+ //Convert extracted string into upper case and append it with the remaining characters of the string
   var finalResult = res1.toUpperCase() + result.slice(1);
   var listItem = document.createElement('li');
   listItem.textContent = finalResult;
