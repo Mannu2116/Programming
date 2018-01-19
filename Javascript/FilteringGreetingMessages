@@ -18,6 +18,7 @@ var greetings = ['Happy Birthday!',
 
 for (var i = 0; i < greetings.length; i++) {
   var input = greetings[i];
+  //By using indexOf() method check whether each String contains Christmas word or not, if it contains print it to the console
   if(input.indexOf('Christmas') !== -1){
   if (greetings[i]) {
     var result = input;
