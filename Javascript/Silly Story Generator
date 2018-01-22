@@ -58,7 +58,7 @@ Will generate another random silly story if you press the button again (and agai
     <div>
       <button>Generate random story</button>
     </div>
-    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
+   
     <div>
 	<p class="story"></p>
     </div>
