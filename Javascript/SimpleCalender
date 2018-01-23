@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Simple Calender</title>
+	</head>
+	
+	<style>
+			.output * {
+		  box-sizing: border-box;
+		}
+
+		.output ul {
+		  padding-left: 0;
+		}
+
+		.output li {
+		  display: block;
+		  float: left;
+		  width: 25%;
+		  border: 2px solid white;
+		  padding: 5px;
+		  height: 40px;
+		  background-color: #4A2DB6;
+		  color: white;
+		}
+
+	</style>
+	
+	<body>
+	
+	<div class="output" style="height: 500px;overflow: auto;">
+
+		<label for="calender">Select Month: </label>
+		<select id="calender">
+			<option value="jan">JAN</option>
+			<option value="feb">FEB</option>
+			<option value="mar">MAR</option>
+			<option value="apr">APR</option>
+			<option value="may">MAY</option>
+			<option value="jun">JUN</option>
+			<option value="jul">JUL</option>
+			<option value="aug">AUG</option>
+			<option value="sep">SEP</option>
+			<option value="oct">OCT</option>
+			<option value="nov">NOV</option>
+			<option value="dec">DEC</option>
+		</select>
+		
+		<h1> </h1>
+		
+		<ul> </ul>
+		
+	</div>
+		
+	</body>
+	
+	<script>
+	
+		var select = document.querySelector('select');
+		var h1 = document.querySelector('h1');
+		var list = document.querySelector('ul');
+		
+		select.onchange = function(){
+			var val = select.value;
+			var days = 30;
+			
+			if(val === 'jan' || val === 'mar'|| val === 'may' || val === 'jul' || val === 'aug' || val === 'oct' || val === 'dec')
+			{
+				
+				days = 31;	}		
+			else{
+			
+				days = 28;}
+			
+			createCalendar(days, val);
+		}
+		
+		function createCalendar(days, val) {
+			  list.innerHTML = '';
+			  h1.textContent = val;
+			  for (var i = 1; i <= days; i++) {
+				var listItem = document.createElement('li');
+				listItem.textContent = i;
+				list.appendChild(listItem);
+			  }
+			}
+	</script>
+</html>
