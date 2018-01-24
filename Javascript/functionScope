@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Scope</title>
+		
+	<!-- first.js and second.js have same variable name and function name overrides first.js and prints the name and function from second.js
+  <script src ="first.js"></script>
+		<script src="second.js"></script>
+		<script>
+		greeting();</script>
+	</head>
+	
+	<body>
+		</body>
+	
+</html>	
+
+--first.js--
+
+var name = "manju";
+
+function greeting(){
+	  alert('Hello ' + name + ': welcome to our company.');
+}
+
+--second.js--
+
+var name = "bhargavi";
+
+function greeting(){
+	  alert('Hello ' + name + ': welcome to our company.');
+}
