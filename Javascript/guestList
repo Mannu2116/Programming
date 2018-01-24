@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Filling in a GuestList</title>
+	</head>
+	
+	<body>
+	
+	<div class="result">
+		<p class="Admit">Admit:</p>
+		<p class="Refuse">Refuse:</p>
+		
+	</div>
+	</body>
+	
+	<script>
+	
+		var people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+		var admit = document.querySelector('.Admit');
+		var refuse = document.querySelector('.Refuse');
+		var result = document.querySelector('.result');
+		
+		for(var i=0 ; i <people.length;i++){
+		
+			if(people[i] === 'Phil' || people[i] === 'Lola'){
+			
+				refuse.textContent += people[i] +",";}
+			else{
+				
+				admit.textContent += people[i] +",";}	
+				
+			}
+			
+			
+			
+			refuse.textContent = refuse.textContent.slice(0,refuse.textContent.length-2) + '.';
+			admit.textContent = admit.textContent.slice(0,admit.textContent.length-2) + '.';
+			
+      <!--To know length of content -->
+			var para = document.createElement('p');
+			para.textContent = refuse.textContent.length;
+			result.appendChild(para);
+			
+			
+			
+	</script>
+	
+<html>
