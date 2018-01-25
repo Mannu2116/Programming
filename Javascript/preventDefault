@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Form</title>
+        <style>
+                div {
+                    margin-bottom: 10px;
+                }
+        </style>
+
+    </head>
+
+    <body>
+        <form>
+        <div>
+            <label for="fname">First name: </label>
+            <input id="fname" type="text">
+        </div>
+        <br>
+        <div>
+            <label for="lname">Last name: </label>
+            <input id="lname" type="text">
+        </div>
+        <br>
+        <div>
+            <input id="submit" type="submit">
+        </div>
+        </form>
+        <p></p>
+        
+        <script>
+
+            var form = document.querySelector('form');
+            var fname = document.getElementById('fname');
+            var lname = document.getElementById('lname');
+            var submit = document.getElementById('submit');
+            var para = document.querySelector('p');
+
+            form.onsubmit = function(e){
+
+                if(fname.value === '' || lname.value === ''){
+
+                    <!-- stops the form submission and displays the error message -->
+                    e.preventDefault();
+                    para.textContent = 'Enter complete details'
+                    
+                }
+
+            }
+
+        </script>
+        </body>
+</html>
+
